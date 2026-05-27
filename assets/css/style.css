@@ -1,38 +1,58 @@
 /* assets/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-  --glass-bg: rgba(255, 182, 193, 0.08);
-  --glass-border: rgba(255, 192, 203, 0.15);
-  --glass-shadow: rgba(0, 0, 0, 0.3);
-  --glass-overlay: rgba(30, 15, 20, 0.65);
-  --accent: #ff9a9e;
-  --accent-secondary: #fecfef;
-  --accent-tertiary: #ff758c;
-  --text: #ffe4e6;
-  --muted: rgba(255, 228, 230, 0.6);
-  --bg-color: #1a0f14;
-  --orb-1: #ff9a9e;
-  --orb-2: #fecfef;
-  --orb-3: #ff758c;
-  --radius: 20px;
-  --radius-sm: 12px;
-  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Premium iOS/One UI Blue Odyssey Theme (Default Dark) */
+  --bg-color: #070a13;
+  --bg-dots: rgba(255, 255, 255, 0.025);
+  
+  --text: #f3f4f6;
+  --muted: rgba(243, 244, 246, 0.6);
+  --text-inverse: #070a13;
+  
+  --accent: #007aff;           /* Apple Classic iOS Blue */
+  --accent-secondary: #00c6ff; /* Sky Electric Cyan */
+  --accent-tertiary: #6c5ce7;  /* Deep iOS Purple */
+  
+  --accent-gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  
+  --glass-bg: rgba(13, 20, 38, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-shadow: rgba(0, 0, 0, 0.55);
+  --glass-overlay: rgba(10, 15, 28, 0.7);
+  
+  --orb-1: #007aff;
+  --orb-2: #00c6ff;
+  --orb-3: #70a1ff;
+  
+  --radius: 28px;              /* iOS / One UI Squircle Corners */
+  --radius-sm: 16px;
+  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root[data-theme="light"] {
-  --glass-bg: rgba(255, 255, 255, 0.45);
-  --glass-border: rgba(255, 192, 203, 0.55);
-  --glass-shadow: rgba(255, 182, 193, 0.25);
-  --glass-overlay: rgba(253, 242, 248, 0.65);
-  --accent: #db2777;
-  --accent-secondary: #9d174d;
-  --accent-tertiary: #be185d;
-  --text: #4a044e;
-  --muted: rgba(74, 4, 78, 0.6);
-  --bg-color: #fdf2f8;
-  --orb-1: #fbcfe8;
-  --orb-2: #fce7f3;
-  --orb-3: #f9a8d4;
+  /* Frosted Ice iOS Light Theme */
+  --bg-color: #f0f4f8;
+  --bg-dots: rgba(0, 122, 255, 0.035);
+  
+  --text: #0f172a;
+  --muted: rgba(15, 23, 42, 0.6);
+  --text-inverse: #f3f4f6;
+  
+  --accent: #0056cc;
+  --accent-secondary: #0099ff;
+  --accent-tertiary: #5c3ce7;
+  
+  --accent-gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(0, 86, 204, 0.08);
+  --glass-shadow: rgba(0, 86, 204, 0.08);
+  --glass-overlay: rgba(240, 244, 248, 0.7);
+  
+  --orb-1: #cce5ff;
+  --orb-2: #e0f7fc;
+  --orb-3: #d1d5db;
 }
 
 *, *::before, *::after {
@@ -46,67 +66,64 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background: var(--bg-color);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  transition: background 0.5s ease, color 0.5s ease;
+  transition: background 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s ease;
 }
 
-/* Background gradient overlays */
+/* Background grid overlay */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(255, 154, 158, 0.08) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 70% at 80% 80%, rgba(254, 207, 239, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 55% 40%, rgba(255, 117, 140, 0.06) 0%, transparent 50%);
+  background-image: 
+    radial-gradient(circle at 1px 1px, var(--bg-dots) 1px, transparent 0);
+  background-size: 32px 32px;
   pointer-events: none;
-  z-index: 0;
+  z-index: -2;
 }
 
-/* Cosmic Ambient Floating Orbs */
+/* Cosmic iOS Background Ambient Orbs */
 .orb {
   position: fixed;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.25;
+  filter: blur(100px);
+  opacity: 0.22;
   pointer-events: none;
-  z-index: 0;
-  animation: floatOrb 20s ease-in-out infinite;
+  z-index: -3;
+  animation: floatOrb 22s ease-in-out infinite;
   will-change: transform;
-  transform: translateZ(0);
 }
-.orb-1 { width: 500px; height: 500px; background: var(--orb-1); top: -150px; left: -150px; animation-duration: 22s; }
-.orb-2 { width: 400px; height: 400px; background: var(--orb-2); bottom: -100px; right: -100px; animation-duration: 18s; animation-delay: -6s; }
-.orb-3 { width: 300px; height: 300px; background: var(--orb-3); top: 50%; left: 50%; animation-duration: 25s; animation-delay: -12s; }
+.orb-1 { width: 600px; height: 600px; background: var(--orb-1); top: -200px; left: -150px; animation-duration: 25s; }
+.orb-2 { width: 500px; height: 500px; background: var(--orb-2); bottom: -150px; right: -150px; animation-duration: 20s; animation-delay: -5s; }
+.orb-3 { width: 400px; height: 400px; background: var(--orb-3); top: 40%; left: 45%; animation-duration: 28s; animation-delay: -10s; }
 
 @keyframes floatOrb {
   0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  33% { transform: translate3d(30px, -40px, 0) scale(1.05); }
-  66% { transform: translate3d(-20px, 30px, 0) scale(0.95); }
+  50% { transform: translate3d(50px, -60px, 0) scale(1.08); }
 }
 
-/* Film Grain Texture Overlay */
+/* Fine grain overlay */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 1;
-  opacity: 0.45;
+  z-index: 9999;
+  opacity: 0.35;
 }
 
 .glass {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 0 8px 40px var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.08);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  box-shadow: 0 16px 48px var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 #app {
@@ -117,32 +134,41 @@ body::after {
   flex-direction: column;
 }
 
-/* Sticky elegant navbar */
+/* Redesigned Floating Navbar (iOS Dynamic Bar style) */
 nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 16px; left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 40px;
+  padding: 14px 32px;
+  width: calc(100% - 48px);
+  max-width: 1140px;
   background: var(--glass-overlay);
-  border-bottom: 1px solid var(--glass-border);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  transition: background 0.3s ease;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  transition: var(--transition);
 }
 
 .nav-logo {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 1.25rem;
-  letter-spacing: -0.03em;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.04em;
   background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   cursor: pointer;
+  transition: var(--transition);
+}
+.nav-logo:hover {
+  opacity: 0.85;
 }
 
 .nav-controls {
@@ -151,11 +177,12 @@ nav {
   gap: 12px;
 }
 
+/* iOS/One UI Pill-Shaped Buttons */
 .btn-dl {
-  padding: 10px 20px;
-  border-radius: var(--radius-sm);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 30px; /* Pill Shape */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
   font-size: 0.85rem;
   cursor: pointer;
   display: inline-flex;
@@ -167,12 +194,14 @@ nav {
 
 .btn-dl.primary {
   background: var(--accent);
-  color: var(--bg-color);
+  color: var(--text-inverse);
   border: none;
+  box-shadow: 0 4px 15px rgba(0, 122, 255, 0.25);
 }
 .btn-dl.primary:hover {
   background: var(--accent-secondary);
-  box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 122, 255, 0.4);
+  transform: translateY(-1.5px);
 }
 
 .btn-dl.secondary {
@@ -183,13 +212,14 @@ nav {
 .btn-dl.secondary:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: var(--accent);
+  transform: translateY(-1.5px);
 }
 
-/* Page management classes */
+/* Page configurations */
 .page {
   display: none;
   flex: 1;
-  padding: 100px 40px 40px;
+  padding: 120px 24px 40px;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -198,22 +228,22 @@ nav {
   display: block;
 }
 
-/* Headers label values */
+/* Custom Header labels */
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .section-label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .section-label span {
@@ -224,21 +254,26 @@ nav {
 }
 
 .filter-controls select {
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
+  padding: 8px 20px;
+  border-radius: 20px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   color: var(--text);
   outline: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.filter-controls select:hover {
+  border-color: var(--accent);
 }
 
-/* Cards Grid */
+/* Redesigned Widgets Cards (iOS / One UI style) */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 24px;
+  gap: 28px;
 }
 
 .os-card {
@@ -253,9 +288,9 @@ nav {
 }
 
 .os-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  transform: scale(1.025);
+  border-color: var(--accent-secondary);
+  box-shadow: 0 20px 40px rgba(0, 122, 255, 0.12);
 }
 
 .card-img {
@@ -268,68 +303,69 @@ nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .os-card:hover .card-img img {
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 
 .card-img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, var(--bg-color) 100%);
-  opacity: 0.85;
+  background: linear-gradient(to bottom, transparent 30%, var(--bg-color) 100%);
+  opacity: 0.9;
 }
 
 .badges-container {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 18px;
+  left: 18px;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 }
 
 .card-badge {
-  padding: 4px 10px;
-  border-radius: 30px;
-  font-family: 'Syne', sans-serif;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 0.62rem;
-  letter-spacing: 0.05em;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.card-badge.stable { background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8; }
-.card-badge.beta { background: rgba(251, 146, 60, 0.15); border: 1px solid rgba(251, 146, 60, 0.3); color: #fb923c; }
-.card-badge.pre-release { background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.3); color: #a855f7; }
-.card-badge.new { background: #db2777; color: #fff; }
+.card-badge.stable { background: rgba(0, 122, 255, 0.12); border: 1px solid rgba(0, 122, 255, 0.25); color: var(--accent-secondary); }
+.card-badge.beta { background: rgba(243, 156, 18, 0.12); border: 1px solid rgba(243, 156, 18, 0.25); color: #f39c12; }
+.card-badge.pre-release { background: rgba(155, 89, 182, 0.12); border: 1px solid rgba(155, 89, 182, 0.25); color: #9b59b6; }
+.card-badge.new { background: var(--accent); color: var(--text-inverse); }
 
 .card-body {
-  padding: 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
 .card-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   margin-bottom: 8px;
+  letter-spacing: -0.02em;
 }
 
 .card-desc {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.88rem;
+  line-height: 1.55;
   color: var(--muted);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   flex: 1;
 }
 
 .card-footer {
   border-top: 1px solid var(--glass-border);
-  padding-top: 16px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -354,7 +390,7 @@ nav {
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   overflow: hidden;
-  padding: 40px;
+  padding: 44px;
 }
 
 .back-btn {
@@ -364,7 +400,7 @@ nav {
   cursor: pointer;
   color: var(--muted);
   font-size: 0.9rem;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
   transition: var(--transition);
 }
 
@@ -401,17 +437,18 @@ nav {
 }
 
 .detail-title {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
   font-size: 2.2rem;
   margin-bottom: 12px;
+  letter-spacing: -0.03em;
 }
 
 .detail-desc {
   color: var(--muted);
   line-height: 1.6;
   margin-bottom: 24px;
-  font-size: 1rem;
+  font-size: 0.98rem;
 }
 
 .detail-actions-row {
@@ -426,10 +463,11 @@ nav {
 }
 
 .downloads-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   margin-bottom: 24px;
+  letter-spacing: -0.02em;
 }
 
 .download-group {
@@ -447,21 +485,23 @@ nav {
   border-bottom: 1px dashed var(--glass-border);
 }
 
+/* Pill-shaped download list elements (One UI Widget style) */
 .download-item-row {
   background: rgba(255,255,255,0.02);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
-  padding: 16px 24px;
+  padding: 16px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   transition: var(--transition);
 }
 
 .download-item-row:hover {
   background: rgba(255, 255, 255, 0.04);
   border-color: var(--accent);
+  transform: translateX(4px);
 }
 
 .dl-item-meta {
@@ -491,8 +531,8 @@ nav {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(8, 4, 10, 0.7);
-  backdrop-filter: blur(8px);
+  background: rgba(7, 10, 19, 0.75);
+  backdrop-filter: blur(12px);
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -507,14 +547,14 @@ nav {
   width: 100%;
   max-height: 85vh;
   overflow-y: auto;
-  padding: 40px;
+  padding: 44px;
   position: relative;
 }
 
 .close-modal {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 24px;
+  right: 24px;
   cursor: pointer;
   color: var(--muted);
   font-size: 1.5rem;
@@ -524,7 +564,6 @@ nav {
   color: var(--accent);
 }
 
-/* Warning timer */
 .disabled {
   opacity: 0.6;
   pointer-events: none;
@@ -532,16 +571,16 @@ nav {
 }
 
 /* Markdown parsing styling templates */
-#md-content h1, #reader-content h1 { font-family: 'Syne', sans-serif; font-size: 1.6rem; margin-bottom: 16px; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px; }
-#md-content h2, #reader-content h2 { font-family: 'Syne', sans-serif; font-size: 1.25rem; margin-top: 20px; margin-bottom: 12px; }
+#md-content h1, #reader-content h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; margin-bottom: 16px; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px; }
+#md-content h2, #reader-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-top: 20px; margin-bottom: 12px; }
 #md-content p, #reader-content p { line-height: 1.6; margin-bottom: 16px; font-size: 0.95rem; }
-#md-content pre, #reader-content pre { background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); padding: 16px; border-radius: var(--radius-sm); margin-bottom: 16px; overflow-x: auto; font-family: monospace; }
+#md-content pre, #reader-content pre { background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); padding: 18px; border-radius: var(--radius-sm); margin-bottom: 16px; overflow-x: auto; font-family: monospace; }
 #md-content ul, #reader-content ul { margin-left: 20px; margin-bottom: 16px; line-height: 1.6; }
 #md-content li, #reader-content li { margin-bottom: 6px; }
 
 footer {
   text-align: center;
-  padding: 40px 0;
+  padding: 48px 0;
   color: var(--muted);
   font-size: 0.8rem;
   letter-spacing: 0.05em;
@@ -564,10 +603,12 @@ footer {
     max-width: 320px;
   }
   nav {
-    padding: 16px 20px;
+    padding: 12px 24px;
+    width: calc(100% - 24px);
+    top: 12px;
   }
   .page {
-    padding: 90px 20px 20px;
+    padding: 100px 16px 20px;
   }
   .download-item-row {
     flex-direction: column;
