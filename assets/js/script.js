@@ -183,24 +183,43 @@ function buildCards(deviceFilter = 'all') {
 }
 
 function navigateHome() {
-  document.getElementById('page-detail').classList.remove('active');
-  const guidePage = document.getElementById('page-guide');
-  if (guidePage) guidePage.classList.remove('active');
-  document.getElementById('page-home').classList.add('active');
-  window.scrollTo(0, 0);
+  window.location.hash = '';
 }
 
 function navigateGuide() {
-  document.getElementById('page-home').classList.remove('active');
-  document.getElementById('page-detail').classList.remove('active');
-  const guidePage = document.getElementById('page-guide');
-  if (guidePage) guidePage.classList.add('active');
-  window.scrollTo(0, 0);
+  window.location.hash = 'guide';
 }
 
 function navigateToOS(id) {
+  window.location.hash = `os-${id}`;
+}
+
+function handleRouting() {
+  const hash = window.location.hash;
+  if (hash === '#guide') {
+    document.getElementById('page-home').classList.remove('active');
+    document.getElementById('page-detail').classList.remove('active');
+    const guidePage = document.getElementById('page-guide');
+    if (guidePage) guidePage.classList.add('active');
+    window.scrollTo(0, 0);
+  } else if (hash.startsWith('#os-')) {
+    const osId = hash.replace('#os-', '');
+    renderOSDetail(osId);
+  } else {
+    document.getElementById('page-detail').classList.remove('active');
+    const guidePage = document.getElementById('page-guide');
+    if (guidePage) guidePage.classList.remove('active');
+    document.getElementById('page-home').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+}
+
+function renderOSDetail(id) {
   const os = OS_DATA.find(o => o.id === id);
-  if (!os) return;
+  if (!os) {
+    navigateHome();
+    return;
+  }
 
   const detailContent = document.getElementById('detail-content');
   if (!detailContent) return;
@@ -247,7 +266,7 @@ function navigateToOS(id) {
         <h1 class="detail-title">${os.name}</h1>
         <p class="detail-desc">${os.fullDesc}</p>
         <div class="detail-actions-row">
-          <button class="btn-dl primary" onclick="loadGuide('${os.guideFile}')">Flashing Guide</button>
+          <button class="btn-dl primary" onclick="loadGuide('${os.id}')">Flashing Guide</button>
           <a href="${os.changelog}" target="_blank" rel="noopener noreferrer" class="btn-dl secondary">
             Changelog
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -314,7 +333,7 @@ function closeWarningModal() {
 }
 
 // Markdown flashing guide compiler loader
-function loadGuide(filePath) {
+function loadGuide(osId) {
   const mdModal = document.getElementById('md-modal');
   const mdContent = document.getElementById('md-content');
   
@@ -323,25 +342,21 @@ function loadGuide(filePath) {
   mdContent.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--muted);">Loading instructions...</div>';
   mdModal.classList.add('active');
   
-  fetch(filePath)
-    .then(response => {
-      if (!response.ok) throw new Error("Flashing guide could not be loaded.");
-      return response.text();
-    })
-    .then(text => {
-      // Compile using global marked library loaded in head
-      if (window.marked) {
-        mdContent.innerHTML = window.marked.parse(text);
-      } else {
-        mdContent.innerHTML = `<pre style="white-space: pre-wrap;">${text}</pre>`;
-      }
-    })
-    .catch(err => {
-      mdContent.innerHTML = `
-        <h2 style="color: var(--accent); font-family: 'Syne', sans-serif;">Error</h2>
-        <p>${err.message}</p>
-      `;
-    });
+  const os = OS_DATA.find(o => o.id === osId);
+  if (!os || !os.guideContent) {
+    mdContent.innerHTML = `
+      <h2 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 15px;">Error</h2>
+      <p>Flashing guide not found.</p>
+    `;
+    return;
+  }
+  
+  // Compile using global marked library loaded in head
+  if (window.marked) {
+    mdContent.innerHTML = window.marked.parse(os.guideContent);
+  } else {
+    mdContent.innerHTML = `<pre style="white-space: pre-wrap;">${os.guideContent}</pre>`;
+  }
 }
 
 function closeModal() {
@@ -360,4 +375,7 @@ function closeDonateModal() {
 window.onload = () => {
   populateHomeDeviceFilter();
   buildCards('all');
+  handleRouting();
 };
+
+window.addEventListener('hashchange', handleRouting);
