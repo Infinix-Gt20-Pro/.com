@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO parameters -->
+  <title>Infinix GT 20 PRO | India - Products</title>
+  <meta name="description" content="Official ROM ports hub for Infinix GT 20 Pro. Experience stable Oxygen OS, XOS, and Color OS firmware updates." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  
+  <!-- Core styling -->
+  
+  <!-- Marked.js dynamic parser library dependency -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index.css">
+</head>
+<body>
+
+  <!-- Cosmic Glowing Blur Background Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div id="app">
+    <!-- Sticky Glass Navigation Header -->
+    <nav class="glass">
+      <div class="nav-logo" onclick="navigateHome()">Infinix GT 20 PRO | India</div>
+      <div class="nav-controls">
+        <button class="btn-dl secondary nav-btn" onclick="navigateGuide()">Unlock Guide</button>
+        <button class="btn-dl primary nav-btn" onclick="openDonateModal()">Donate</button>
+        <button id="theme-toggle" class="btn-dl secondary nav-btn">Theme</button>
+      </div>
+    </nav>
+
+    <!-- Page Home View -->
+    <div id="page-home" class="page active">
+      <!-- Featured Guidelines Banner Card -->
+      <div class="glass" style="padding: 24px 32px; border-radius: var(--radius); margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div>
+          <h2 style="font-family: 'Syne', sans-serif; font-size: 1.35rem; margin-bottom: 6px; display: inline-flex; align-items: center; gap: 8px;">
+            🔑 <span>Bootloader Unlock Guide</span>
+          </h2>
+          <p style="color: var(--muted); font-size: 0.88rem; max-width: 680px; line-height: 1.5;">
+            Infinix GT 20 Pro (X6871) ka bootloader unlock karne ki step-by-step guideline. Flashing aur modifications start karne se pehle ise padhna zaroori hai.
+          </p>
+        </div>
+        <button class="btn-dl primary" onclick="navigateGuide()">Read Guide</button>
+      </div>
+
+      <div class="section-header" style="margin-top: 20px;">
+        <div class="section-label">
+          <span>Available ROMs</span>
+        </div>
+        <div class="filter-controls" id="home-device-filter-container">
+          <!-- Populated dynamically by script.js -->
+        </div>
+      </div>
+
+      <div class="cards-grid" id="cards-container">
+        <!-- Populated dynamically by script.js -->
+      </div>
+
+      <div class="section-header" style="margin-top: 50px;">
+        <div class="section-label">
+          <span>Available Recoveries</span>
+        </div>
+      </div>
+
+      <div class="cards-grid" id="recoveries-container">
+        <!-- Populated dynamically by script.js -->
+      </div>
+      <footer>Infinix GT 20 PRO | India . <span id="footer-year">2026</span></footer>
+    </div>
+
+    <!-- Page Detail View -->
+    <div id="page-detail" class="page">
+      <div class="detail-container glass">
+        <div class="back-btn" onclick="navigateHome()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back
+        </div>
+        <div id="detail-content">
+          <!-- Loaded dynamically on route change -->
+        </div>
+      </div>
+      <footer>Infinix GT 20 PRO | India . <span class="footer-year-d">2026</span></footer>
+    </div>
+
+    <!-- Page Bootloader Unlock Guide View -->
+    <div id="page-guide" class="page">
+      <div class="detail-container glass" style="padding: 40px;">
+        <div class="back-btn" onclick="navigateHome()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back
+        </div>
+        
+        <h1 style="font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; margin-bottom: 8px;">Bootloader Unlock Guide</h1>
+        <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 30px;">Official step-by-step guidelines for unlocking Infinix GT 20 Pro (X6871) bootloader.</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;" class="detail-header-wrap">
+          <!-- Left Column: Prerequisites -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); padding: 30px;">
+            <h2 style="font-family: 'Syne', sans-serif; font-size: 1.25rem; color: var(--accent); margin-bottom: 20px; border-bottom: 1px dashed var(--glass-border); padding-bottom: 8px;">⚙️ Prerequisites</h2>
+            <ul style="margin-left: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; line-height: 1.6;">
+              <li style="display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--accent);">✔</span> Infinix Account Must Be Logged In</li>
+              <li style="display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--accent);">✔</span> Account Age Must Be At Least 14 Days</li>
+              <li style="display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--accent);">✔</span> OEM Unlocking Available In Developer Options</li>
+              <li style="display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--accent);">✔</span> High Quality USB Cable</li>
+              <li style="display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--accent);">✔</span> Windows PC</li>
+              <li style="display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--accent);">✔</span> MTK USB Drivers Installed</li>
+              <li style="display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--accent);">✔</span> Android Platform Tools Installed</li>
+            </ul>
+          </div>
+          
+          <!-- Right Column: Status & Capabilities -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); padding: 30px; display: flex; flex-direction: column; justify-content: center;">
+            <div style="border: 1px solid rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.05); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 20px; text-align: center;">
+              <div style="font-size: 1.8rem; margin-bottom: 6px; color: #38bdf8;">✔</div>
+              <h3 style="font-family: 'Syne', sans-serif; font-size: 1.1rem; color: #38bdf8; margin-bottom: 4px;">Status</h3>
+              <p style="font-size: 0.88rem; color: var(--text);">Bootloader Successfully Unlocked</p>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; text-align: center;">
+              Unlocking hone ke baad, aapka device fully ready ho jayega in chizon ko flash karne ke liye: <br>
+              <strong>Custom Recoveries (TWRP/OrangeFox), Custom ROMs, Magisk root, aur customizable Kernels.</strong>
+            </p>
+          </div>
+        </div>
+        
+        <!-- Flashing Procedure steps -->
+        <h2 style="font-family: 'Syne', sans-serif; font-size: 1.4rem; margin-bottom: 24px; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px;">🚀 Procedure Steps</h2>
+        <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 45px;">
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">1.</div><div style="flex: 1;">Open: <strong>Settings → About Phone → Version Info</strong></div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">2.</div><div style="flex: 1;">Tap <strong>Build Number 7 Times</strong> To Enable Developer Options.</div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">3.</div><div style="flex: 1;">Navigate To: <strong>Settings → System → Developer Options</strong></div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">4.</div><div style="flex: 1;">Enable The Following: <strong>• OEM Unlocking</strong> and <strong>• USB Debugging</strong></div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">5.</div><div style="flex: 1;">Connect Your Device To The PC Using A USB Cable.</div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">6.</div><div style="flex: 1;">Open The **Platform Tools** Folder.</div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">7.</div><div style="flex: 1;">Click The Address Bar, Type: <pre style="display: inline-block; padding: 2px 8px; margin: 0 4px; background: rgba(0,0,0,0.4); font-size: 0.85rem;">cmd</pre> Then Press **Enter**.</div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">8.</div><div style="flex: 1;">Verify Device Connection: <pre style="display: inline-block; padding: 2px 8px; margin: 0 4px; background: rgba(0,0,0,0.4); font-size: 0.85rem;">adb devices</pre> A USB Debugging Authorization Prompt Will Appear On Your Device. Select **"Allow"**.</div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">9.</div><div style="flex: 1;">Reboot To Fastboot Mode: <pre style="display: inline-block; padding: 2px 8px; margin: 0 4px; background: rgba(0,0,0,0.4); font-size: 0.85rem;">adb reboot bootloader</pre></div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">10.</div><div style="flex: 1;">Once The Device Enters Fastboot Mode, Execute: <pre style="display: inline-block; padding: 2px 8px; margin: 0 4px; background: rgba(0,0,0,0.4); font-size: 0.85rem;">fastboot flashing unlock</pre></div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">11.</div><div style="flex: 1;">A Confirmation Screen Will Appear On The Device. Use **Volume Up** To Confirm Bootloader Unlocking.</div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">12.</div><div style="flex: 1;">Wait For The Unlock Process To Complete.</div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">13.</div><div style="flex: 1;">Reboot The Device: <pre style="display: inline-block; padding: 2px 8px; margin: 0 4px; background: rgba(0,0,0,0.4); font-size: 0.85rem;">fastboot reboot</pre></div></div>
+          <div class="step-row" style="margin-bottom: 0; padding: 12px 24px;"><div style="font-weight: 700; color: var(--accent); margin-right: 15px;">14.</div><div style="flex: 1;">The Device Will Automatically Perform A **Factory Reset**.</div></div>
+        </div>
+        
+        <!-- Premium warning caution block -->
+        <div style="background: rgba(220, 38, 38, 0.05); border: 1px solid rgba(220, 38, 38, 0.25); border-radius: var(--radius-sm); padding: 30px;">
+          <h2 style="font-family: 'Syne', sans-serif; font-size: 1.25rem; color: #f87171; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            ⚠️ <span>WARNING & SAFETY INSTRUCTIONS</span>
+          </h2>
+          <ul style="margin-left: 20px; line-height: 1.6; color: #fecaca; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
+            <li><strong>Data Loss Alert</strong>: Unlocking The Bootloader Will **Permanently Erase** All User Data.</li>
+            <li>Create A **Complete Backup** before proceeding with the process.</li>
+            <li>The **First Boot** after unlocking may take several minutes to complete.</li>
+            <li>**OTA updates** may fail or be blocked on modified recovery configurations.</li>
+            <li>Incorrect flashing procedures can result in a **non-booting (bricked)** device.</li>
+            <li>Proceed only if you fully understand the software risks involved.</li>
+            <li><strong>You alone are responsible</strong> for any physical or system damage to your device.</li>
+          </ul>
+          <div style="margin-top: 20px; font-weight: 600; text-align: center; color: #f87171; font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase;">
+            Flash Carefully. Read Before You Proceed. No one is responsible except you.
+          </div>
+        </div>
+      </div>
+      <footer>Infinix GT 20 PRO | India . <span class="footer-year-d">2026</span></footer>
+    </div>
+  </div>
+
+  <!-- Markdown recovery guide modal -->
+  <div id="md-modal" class="modal">
+    <div class="modal-content glass">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <div id="md-content"></div>
+    </div>
+  </div>
+
+  <!-- Download warning lock countdown modal -->
+  <div id="dl-warning-modal" class="modal">
+    <div class="modal-content glass" style="text-align: center;">
+      <span class="close-modal" onclick="closeWarningModal()">&times;</span>
+      <h2 style="color: var(--accent); margin-bottom: 15px; font-family: 'Syne', sans-serif;">Reminder</h2>
+      <p style="margin-bottom: 10px;">You are about to <strong>leave</strong> this site to download the ROM.</p>
+      <p style="margin-bottom: 10px;">You may need to <strong>disable Ad-block</strong> to proceed.</p>
+      <p style="margin-bottom: 20px;">If you have trouble proceeding with the link you may watch the video guide: <br>
+        <a href="https://youtu.be/rsJsWvPC0qI?si=MBHHkhuJkhrdNxqs" target="_blank" style="color: var(--accent); text-decoration: underline;">Watch Video Guide</a>
+      </p>
+      <p style="margin-bottom: 10px;">DO NOT <strong>MIRROR</strong> nor <strong>SHARE</strong> the DIRECT download link.</p>
+      <div style="margin-top: 25px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <button id="proceed-btn" class="btn-dl primary disabled" disabled>
+          Proceed (<span id="countdown-timer">5</span>s)
+        </button>
+        <button class="btn-dl secondary" onclick="openDonateModal()">
+          Support / Donate
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation gateways modal -->
+  <div id="donate-modal" class="modal">
+    <div class="modal-content glass" style="text-align: center; max-width: 400px;">
+      <span class="close-modal" onclick="closeDonateModal()">&times;</span>
+      <h2 style="color: var(--accent); margin-bottom: 20px; font-family: 'Syne', sans-serif;">Support the Project</h2>
+      <p style="margin-bottom: 20px; color: var(--muted); font-size: 0.9rem;">If you like my work, consider supporting to keep the servers running and motivate further development.</p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="https://saweria.co/ryanistr" target="_blank" rel="noopener" class="btn-dl primary" style="justify-content: center;">Saweria</a>
+        <a href="https://sociabuzz.com/ryanistr/tribe" target="_blank" rel="noopener" class="btn-dl primary" style="justify-content: center;">Sociobuzz</a>
+        <a href="https://www.paypal.com/paypalme/ryanistr" target="_blank" rel="noopener" class="btn-dl primary" style="justify-content: center;">PayPal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROMs Datasets -->
+  <script src="assets/js/init-data.js"></script>
+  <script src="assets/js/data/xos.js"></script>
+  <script src="assets/js/data/color-os.js"></script>
+  <script src="assets/js/data/recoveries.js"></script>
+
+  <!-- Main Controller -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
