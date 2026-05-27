@@ -74,9 +74,12 @@ function populateHomeDeviceFilter() {
 }
 
 function buildCards(deviceFilter = 'all') {
-  const container = document.getElementById('cards-container');
-  if (!container) return;
-  container.innerHTML = '';
+  const romsContainer = document.getElementById('cards-container');
+  const recsContainer = document.getElementById('recoveries-container');
+  
+  if (!romsContainer) return;
+  romsContainer.innerHTML = '';
+  if (recsContainer) recsContainer.innerHTML = '';
   
   const visibleOS = OS_DATA.filter(os => !os.hide).sort((a, b) => {
     return getLatestDate(b) - getLatestDate(a);
@@ -142,6 +145,9 @@ function buildCards(deviceFilter = 'all') {
     card.style.animationDelay = `${cardsRendered * 0.08}s`;
     card.onclick = () => navigateToOS(os.id);
     
+    const isRec = os.id === 'recoveries';
+    const releaseText = isRec ? 'recovery' : 'release';
+    
     card.innerHTML = `
       <div class="card-img">
         <img src="${os.image}" alt="${os.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop'" />
@@ -160,21 +166,35 @@ function buildCards(deviceFilter = 'all') {
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg> 
-            ${totalDownloads} release${totalDownloads !== 1 ? 's' : ''} available
+            ${totalDownloads} ${releaseText}${totalDownloads !== 1 ? 's' : ''} available
           </div>
           <div class="card-date">${formattedDate}</div>
         </div>
       </div>
     `;
     
-    container.appendChild(card);
+    if (isRec && recsContainer) {
+      recsContainer.appendChild(card);
+    } else {
+      romsContainer.appendChild(card);
+    }
     cardsRendered++;
   });
 }
 
 function navigateHome() {
   document.getElementById('page-detail').classList.remove('active');
+  const guidePage = document.getElementById('page-guide');
+  if (guidePage) guidePage.classList.remove('active');
   document.getElementById('page-home').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function navigateGuide() {
+  document.getElementById('page-home').classList.remove('active');
+  document.getElementById('page-detail').classList.remove('active');
+  const guidePage = document.getElementById('page-guide');
+  if (guidePage) guidePage.classList.add('active');
   window.scrollTo(0, 0);
 }
 
@@ -184,6 +204,9 @@ function navigateToOS(id) {
 
   const detailContent = document.getElementById('detail-content');
   if (!detailContent) return;
+
+  const isRec = os.id === 'recoveries';
+  const getButtonLabel = isRec ? 'Get Recovery' : 'Get ROM';
 
   // Build dynamic download list grouped by stable/beta
   let downloadsHTML = '';
@@ -205,7 +228,7 @@ function navigateToOS(id) {
                     <polyline points="7 10 12 15 17 10"></polyline>
                     <line x1="12" y1="15" x2="12" y2="3"></line>
                   </svg>
-                  Get ROM
+                  ${getButtonLabel}
                 </button>
               </div>
             </div>
