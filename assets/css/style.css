@@ -1,5 +1,5 @@
 /* assets/css/style.css */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* Premium iOS/One UI Blue Odyssey Theme (Default Dark) */
@@ -28,31 +28,12 @@
   --radius: 28px;              /* iOS / One UI Squircle Corners */
   --radius-sm: 16px;
   --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
-:root[data-theme="light"] {
-  /* Frosted Ice iOS Light Theme */
-  --bg-color: #f0f4f8;
-  --bg-dots: rgba(0, 122, 255, 0.035);
-  
-  --text: #0f172a;
-  --muted: rgba(15, 23, 42, 0.6);
-  --text-inverse: #f3f4f6;
-  
-  --accent: #0056cc;
-  --accent-secondary: #0099ff;
-  --accent-tertiary: #5c3ce7;
-  
-  --accent-gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
-  
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-border: rgba(0, 86, 204, 0.08);
-  --glass-shadow: rgba(0, 86, 204, 0.08);
-  --glass-overlay: rgba(240, 244, 248, 0.7);
-  
-  --orb-1: #cce5ff;
-  --orb-2: #e0f7fc;
-  --orb-3: #d1d5db;
+  /* Premium Font Stack */
+  --font-display: 'Bricolage Grotesque', sans-serif;  /* Headlines, Titles */
+  --font-body: 'Manrope', sans-serif;                 /* Body, Buttons, UI */
+  --font-mono: 'JetBrains Mono', monospace;           /* Code, Terminal */
+  --font-label: 'Space Grotesk', sans-serif;          /* Badges, Labels */
 }
 
 *, *::before, *::after {
@@ -66,13 +47,16 @@ html {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-body);
   background: var(--bg-color);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
   transition: background 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
 }
 
 /* Background grid overlay */
@@ -156,10 +140,10 @@ nav {
 }
 
 .nav-logo {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.2rem;
-  letter-spacing: -0.04em;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
   background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -181,7 +165,7 @@ nav {
 .btn-dl {
   padding: 10px 24px;
   border-radius: 30px; /* Pill Shape */
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.85rem;
   cursor: pointer;
@@ -240,10 +224,10 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.5rem;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 .section-label span {
@@ -329,10 +313,10 @@ nav {
 .card-badge {
   padding: 4px 12px;
   border-radius: 20px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-label);
   font-weight: 700;
   font-size: 0.65rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .card-badge.stable { background: rgba(0, 122, 255, 0.12); border: 1px solid rgba(0, 122, 255, 0.25); color: var(--accent-secondary); }
@@ -348,11 +332,12 @@ nav {
 }
 
 .card-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   margin-bottom: 8px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
 }
 
 .card-desc {
@@ -437,11 +422,12 @@ nav {
 }
 
 .detail-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 800;
   font-size: 2.2rem;
   margin-bottom: 12px;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
 }
 
 .detail-desc {
@@ -463,11 +449,11 @@ nav {
 }
 
 .downloads-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.35rem;
   margin-bottom: 24px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .download-group {
@@ -571,12 +557,13 @@ nav {
 }
 
 /* Markdown parsing styling templates */
-#md-content h1, #reader-content h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; margin-bottom: 16px; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px; }
-#md-content h2, #reader-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-top: 20px; margin-bottom: 12px; }
-#md-content p, #reader-content p { line-height: 1.6; margin-bottom: 16px; font-size: 0.95rem; }
-#md-content pre, #reader-content pre { background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); padding: 18px; border-radius: var(--radius-sm); margin-bottom: 16px; overflow-x: auto; font-family: monospace; }
-#md-content ul, #reader-content ul { margin-left: 20px; margin-bottom: 16px; line-height: 1.6; }
-#md-content li, #reader-content li { margin-bottom: 6px; }
+#md-content h1, #reader-content h1 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; margin-bottom: 16px; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px; letter-spacing: -0.03em; }
+#md-content h2, #reader-content h2 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-top: 20px; margin-bottom: 12px; letter-spacing: -0.02em; }
+#md-content p, #reader-content p { font-family: var(--font-body); line-height: 1.7; margin-bottom: 16px; font-size: 0.95rem; }
+#md-content pre, #reader-content pre { background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); padding: 18px; border-radius: var(--radius-sm); margin-bottom: 16px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.6; }
+#md-content code, #reader-content code { font-family: var(--font-mono); background: rgba(0,122,255,0.08); border: 1px solid rgba(0,122,255,0.15); padding: 2px 6px; border-radius: 6px; font-size: 0.88em; color: var(--accent-secondary); }
+#md-content ul, #reader-content ul { margin-left: 20px; margin-bottom: 16px; line-height: 1.7; }
+#md-content li, #reader-content li { margin-bottom: 6px; font-family: var(--font-body); }
 
 footer {
   text-align: center;
