@@ -5,11 +5,11 @@ OS_DATA.push({
   name: "XOS (Transsion OS)",
   hide: false,
   image: "assets/images/banners/xos.png",
-  shortDesc: "XOS 16.1 for GT 20 Pro — Ported from Infinix GT30 PRO & NOTE EDGE | 64-Bit Only",
-  fullDesc: "Stable Release v3 (Ported from Infinix GT30 PRO) & Release v2 (Ported from Infinix NOTE EDGE) by @merhan. Stable Transsion OS experience customized for Infinix GT 20 Pro.",
+  shortDesc: "XOS 16.2 for GT 20 Pro — Ported from Infinix GT30 PRO & NOTE EDGE | 64-Bit Only",
+  fullDesc: "Beta Release v3 (Ported from Infinix GT30 PRO) & Release v2 (Ported from Infinix NOTE EDGE) by @merhan. Transsion OS experience customized for Infinix GT 20 Pro.",
   changelog: "https://t.me/xos16x6871portlinks/3",
   guideFile: "guides/xos.md",
-  guideContent: `# XOS 16.1 Port - Flashing Guide for Infinix GT 20 Pro
+  guideContent: `# XOS 16.2 Port - Flashing Guide for Infinix GT 20 Pro
 
 ## DISCLAIMER
 \`\`\`Disclaimer
@@ -24,7 +24,7 @@ We are not responsible for bricked devices. Proceed at your own risk.
 ## 🚀 Flashing Process
 1. 1️⃣ **Reboot to Recovery** (TWRP / OrangeFox)
 2. 2️⃣ **Flash Vbmeta Disabler** zip file
-3. 3️⃣ **Flash ROM.zip** (XOS 16.1 Port)
+3. 3️⃣ **Flash ROM.zip** (XOS 16.2 Port)
 4. 4️⃣ **Format Data** (Select wipe -> format data, type \`yes\`)
 5. 5️⃣ **Reboot System**
 
@@ -40,7 +40,7 @@ We are not responsible for bricked devices. Proceed at your own risk.
 ---
 
 ## ⚠️ Known Bugs
-- **Jio SIM calling not working** (Affects Stable Release v3)
+- **Jio SIM calling not working** (Affects Beta Release v3)
 - Maybe **INFINIX ID password confirmation** bug in v2 (find [Fix Here](https://t.me/xos16x6871portlinks/3))
 
 ---
@@ -52,12 +52,12 @@ We are not responsible for bricked devices. Proceed at your own risk.
 - All Testers & Contributors!`,
   downloads: [
     {
-      group: "HiOS / XOS Stable Releases",
+      group: "HiOS / XOS Releases",
       items: [
         { 
-          name: "XOS 16.1 - Stable Release v3 | Ported From Infinix GT30 PRO", 
+          name: "XOS 16.2 - Beta Release v3 | Ported From Infinix GT30 PRO", 
           version: "V3.0", 
-          tag: "stable", 
+          tag: "beta", 
           device: "Infinix GT 20 Pro", 
           meta: "Android 16 . 64-Bit Only . Credit: @merhan . Bugs: Jio SIM calling not working", 
           date: "2026-05-28", 
