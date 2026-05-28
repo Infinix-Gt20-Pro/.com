@@ -122,7 +122,17 @@ function buildCards(deviceFilter = 'all') {
     
     const isRec = os.id === 'recoveries';
     const releaseText = isRec ? 'recovery' : 'release';
-    
+    const countHTML = totalDownloads > 0 ? `
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg> 
+      ${totalDownloads} ${releaseText}${totalDownloads !== 1 ? 's' : ''} available
+    ` : `
+      <span style="color: var(--accent); font-weight: 600; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.78rem;">Coming Soon</span>
+    `;
+
     card.innerHTML = `
       <div class="card-img">
         <img src="${os.image}" alt="${os.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop'" />
@@ -136,14 +146,9 @@ function buildCards(deviceFilter = 'all') {
         <div class="card-desc">${os.shortDesc}</div>
         <div class="card-footer">
           <div class="card-count">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg> 
-            ${totalDownloads} ${releaseText}${totalDownloads !== 1 ? 's' : ''} available
+            ${countHTML}
           </div>
-          <div class="card-date">${formattedDate}</div>
+          ${totalDownloads > 0 ? `<div class="card-date">${formattedDate}</div>` : ''}
         </div>
       </div>
     `;
@@ -230,6 +235,12 @@ function renderOSDetail(id) {
         </div>
       `;
     });
+  } else {
+    downloadsHTML = `
+      <div style="text-align: center; padding: 40px; color: var(--muted); background: rgba(255,255,255,0.01); border: 1px dashed var(--glass-border); border-radius: var(--radius-sm); font-family: 'Space Grotesk', sans-serif;">
+        🚀 New download links are being prepared and will be available soon!
+      </div>
+    `;
   }
 
   detailContent.innerHTML = `
@@ -265,46 +276,8 @@ function renderOSDetail(id) {
   window.scrollTo(0, 0);
 }
 
-// Download countdown locker modal
-let countdownTimer = null;
 function triggerDownload(url) {
-  const warningModal = document.getElementById('dl-warning-modal');
-  const proceedBtn = document.getElementById('proceed-btn');
-  const timerText = document.getElementById('countdown-timer');
-  
-  if (!warningModal || !proceedBtn || !timerText) return;
-  
-  // Setup warning lock
-  proceedBtn.classList.add('disabled');
-  proceedBtn.disabled = true;
-  proceedBtn.onclick = null;
-  
-  let ticks = 5;
-  timerText.textContent = ticks;
-  
-  warningModal.classList.add('active');
-  
-  if (countdownTimer) clearInterval(countdownTimer);
-  
-  countdownTimer = setInterval(() => {
-    ticks--;
-    timerText.textContent = ticks;
-    
-    if (ticks <= 0) {
-      clearInterval(countdownTimer);
-      proceedBtn.classList.remove('disabled');
-      proceedBtn.disabled = false;
-      proceedBtn.onclick = () => {
-        window.open(url, '_blank');
-        closeWarningModal();
-      };
-    }
-  }, 1000);
-}
-
-function closeWarningModal() {
-  if (countdownTimer) clearInterval(countdownTimer);
-  document.getElementById('dl-warning-modal').classList.remove('active');
+  window.open(url, '_blank');
 }
 
 // Markdown flashing guide compiler loader

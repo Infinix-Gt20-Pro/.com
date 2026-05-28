@@ -5,8 +5,8 @@ OS_DATA.push({
   name: "XOS (Transsion OS)",
   hide: false,
   image: "assets/images/banners/xos.png",
-  shortDesc: "XOS 16.1 for GT 20 Pro — Ported from Infinix Note Edge by Mehrnn | 64-Bit Only",
-  fullDesc: "Stable Release v2. Do not compare with stock. Based on XOS 15.1.2.145-165. Ported from Infinix Note Edge by Mehrnn | 64-Bit Only.",
+  shortDesc: "XOS 16.1 for GT 20 Pro — Ported from Infinix GT30 PRO & NOTE EDGE | 64-Bit Only",
+  fullDesc: "Stable Release v3 (Ported from Infinix GT30 PRO) & Release v2 (Ported from Infinix NOTE EDGE) by @merhan. Stable Transsion OS experience customized for Infinix GT 20 Pro.",
   changelog: "https://t.me/xos16x6871portlinks/3",
   guideFile: "guides/xos.md",
   guideContent: `# XOS 16.1 Port - Flashing Guide for Infinix GT 20 Pro
@@ -40,26 +40,35 @@ We are not responsible for bricked devices. Proceed at your own risk.
 ---
 
 ## ⚠️ Known Bugs
-- Maybe **INFINIX ID password confirmation** bug (find [Fix Here](https://t.me/xos16x6871portlinks/3))
-- You tell me!
+- **Jio SIM calling not working** (Affects Stable Release v3)
+- Maybe **INFINIX ID password confirmation** bug in v2 (find [Fix Here](https://t.me/xos16x6871portlinks/3))
 
 ---
 
 ## 🤝 Credits & Special Thanks
 - **Allah (S.W.T)**
+- **@merhan** — Main developer & porter (Credit)
 - **@Moiz_Khan56** — For teaching me
-- **@mehraann19** — Lots of bug fixes
 - All Testers & Contributors!`,
   downloads: [
     {
       group: "HiOS / XOS Stable Releases",
       items: [
         { 
-          name: "XOS 16.1 - Stable Release v2", 
+          name: "XOS 16.1 - Stable Release v3 | Ported From Infinix GT30 PRO", 
+          version: "V3.0", 
+          tag: "stable", 
+          device: "Infinix GT 20 Pro", 
+          meta: "Android 16 . 64-Bit Only . Credit: @merhan . Bugs: Jio SIM calling not working", 
+          date: "2026-05-28", 
+          url: "https://drive.google.com/file/d/1M6CmX12FXpk4sPRU1Uq-I4tD4CNytqQr/view?usp=sharing"
+        },
+        { 
+          name: "XOS 16.1 - Stable Release v2 | Ported From Infinix NOTE EDGE", 
           version: "V2.0", 
           tag: "stable", 
           device: "Infinix GT 20 Pro", 
-          meta: "Android 15 . 64-Bit Only", 
+          meta: "Android 16 . 64-Bit Only", 
           date: "2026-05-28", 
           url: "https://drive.google.com/file/d/1T91Z207IHD_tfzvU6-TFUviwjxIchSxW/view"
         }
