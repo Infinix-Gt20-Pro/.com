@@ -40,13 +40,11 @@ We are not responsible for bricked devices. Proceed at your own risk.
 ---
 
 ## ⚠️ Known Bugs
-- **Jio SIM calling not working** (Affects Beta Release v3)
 - Maybe **INFINIX ID password confirmation** bug in v2 (find [Fix Here](https://t.me/xos16x6871portlinks/3))
 
 ---
 
 ## 🤝 Credits & Special Thanks
-- **Allah (S.W.T)**
 - **@mehraann19** — Main developer & porter (Credit)
 - **@Moiz_Khan56** — For teaching me
 - All Testers & Contributors!`,

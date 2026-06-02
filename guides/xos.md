@@ -35,7 +35,6 @@ We are not responsible for bricked devices. Proceed at your own risk.
 ---
 
 ## 🤝 Credits & Special Thanks
-- **Allah (S.W.T)**
 - **@Moiz_Khan56** — For teaching me
 - **@mehraann19** — Lots of bug fixes
 - All Testers & Contributors!
