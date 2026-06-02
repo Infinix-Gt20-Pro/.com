@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
   <!-- Core styling -->
-  <link rel="stylesheet" href="assets/css/style.css?v=1.4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=1.7" />
   
   <!-- Marked.js dynamic parser library dependency -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -35,19 +35,6 @@
 
     <!-- Page Home View -->
     <div id="page-home" class="page active">
-      <!-- Featured Guidelines Banner Card -->
-      <div class="glass" style="padding: 24px 32px; border-radius: var(--radius); margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
-        <div>
-          <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.35rem; margin-bottom: 6px; display: inline-flex; align-items: center; gap: 8px;">
-            🔑 <span>Bootloader Unlock Guide</span>
-          </h2>
-          <p style="color: var(--muted); font-size: 0.88rem; max-width: 680px; line-height: 1.5;">
-            Step-by-step guidelines to unlock the bootloader of Infinix GT 20 Pro (X6871). It is highly recommended to read this before proceeding with flashing and modifications.
-          </p>
-        </div>
-        <button class="btn-dl primary" onclick="navigateGuide()">Read Guide</button>
-      </div>
-
       <div class="section-header" style="margin-top: 20px;">
         <div class="section-label">
           <span>Available ROMs</span>
@@ -70,6 +57,20 @@
       <div class="cards-grid" id="recoveries-container">
         <!-- Populated dynamically by script.js -->
       </div>
+
+      <!-- Featured Guidelines Banner Card (Moved to bottom) -->
+      <div class="glass" style="padding: 24px 32px; border-radius: var(--radius); margin-top: 50px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div>
+          <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.35rem; margin-bottom: 6px; display: inline-flex; align-items: center; gap: 8px;">
+            🔑 <span>Bootloader Unlock Guide</span>
+          </h2>
+          <p style="color: var(--muted); font-size: 0.88rem; max-width: 680px; line-height: 1.5;">
+            Step-by-step guidelines to unlock the bootloader of Infinix GT 20 Pro (X6871). It is highly recommended to read this before proceeding with flashing and modifications.
+          </p>
+        </div>
+        <button class="btn-dl primary" onclick="navigateGuide()">Read Guide</button>
+      </div>
+
       <footer>Infinix GT 20 PRO | India . <span id="footer-year">2026</span> . Website Build by Kashan Ahmad</footer>
     </div>
 
@@ -201,13 +202,13 @@
       <div style="background:rgba(0,122,255,0.07);border:1px solid rgba(0,122,255,0.2);border-radius:16px;padding:18px 20px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
         <div style="text-align:left;">
           <div style="font-size:0.7rem;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;">UPI ID</div>
-          <div id="upi-id-text" style="font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:600;color:var(--accent-secondary);letter-spacing:0.02em;">kashanahmad@fam</div>
+          <div id="upi-id-text" style="font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:600;color:var(--accent-secondary);letter-spacing:0.02em;">6396934358@ybl</div>
         </div>
         <button onclick="copyUPI()" id="copy-upi-btn" style="background:rgba(0,122,255,0.15);border:1px solid rgba(0,122,255,0.3);color:var(--accent-secondary);border-radius:10px;padding:8px 14px;cursor:pointer;font-family:'Manrope',sans-serif;font-size:0.8rem;font-weight:600;transition:all 0.3s ease;white-space:nowrap;">Copy</button>
       </div>
 
       <!-- Pay Now button -->
-      <a href="upi://pay?pa=kashanahmad@fam&pn=Kashan%20Ahmad&cu=INR" class="btn-dl primary" style="justify-content:center;width:100%;box-sizing:border-box;font-size:0.95rem;padding:14px 24px;">
+      <a href="upi://pay?pa=6396934358@ybl&pn=Kashan%20Ahmad&cu=INR" class="btn-dl primary" style="justify-content:center;width:100%;box-sizing:border-box;font-size:0.95rem;padding:14px 24px;">
         Pay with UPI App
       </a>
     </div>
@@ -215,7 +216,7 @@
 
   <script>
     function copyUPI() {
-      navigator.clipboard.writeText('kashanahmad@fam').then(() => {
+      navigator.clipboard.writeText('6396934358@ybl').then(() => {
         const btn = document.getElementById('copy-upi-btn');
         btn.textContent = 'Copied ✓';
         btn.style.background = 'rgba(0,198,255,0.2)';
@@ -239,6 +240,6 @@
   <script src="assets/js/data/recoveries.js"></script>
 
   <!-- Main Controller -->
-  <script src="assets/js/script.js?v=1.4"></script>
+  <script src="assets/js/script.js?v=1.7"></script>
 </body>
 </html>
