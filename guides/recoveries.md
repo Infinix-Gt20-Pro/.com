@@ -30,11 +30,15 @@ Get all compiled recovery builds in the official folders:
    ```bash
    fastboot devices
    ```
-3. Flash the recovery image using fastboot commands:
+3. Flash the recovery image on slot A using fastboot command:
    ```bash
-   fastboot flash recovery recovery.img
+   fastboot flash vendor_boot_a vendor_boot.img
    ```
-4. Reboot directly into recovery:
+4. Flash the recovery image on slot B using fastboot command:
+   ```bash
+   fastboot flash vendor_boot_b vendor_boot.img
+   ```
+5. Reboot directly into recovery:
    ```bash
    fastboot reboot-recovery
    ```
