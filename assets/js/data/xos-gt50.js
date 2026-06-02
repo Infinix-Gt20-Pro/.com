@@ -4,9 +4,9 @@ OS_DATA.push({
   id: "xos-gt50",
   name: "XOS 16.2 (GT50 Pro Port)",
   hide: false,
-  image: "assets/images/banners/xos-gt50.png",
+  image: "",
   shortDesc: "XOS 16.2 Latest Build ported from Infinix GT50 PRO | Android 16",
-  fullDesc: "Experience the state-of-the-art XOS 16.2 build ported from the Infinix GT50 PRO. Maintained and ported by @mehran, this ROM delivers premium UI customisation, improved battery backup, and maximum hardware optimization for the Infinix GT 20 Pro.",
+  fullDesc: "Experience the state-of-the-art XOS 16.2 build ported from the Infinix GT50 PRO. Maintained and ported by @mehraann19, this ROM delivers premium UI customisation, improved battery backup, and maximum hardware optimization for the Infinix GT 20 Pro.",
   changelog: "#",
   guideFile: "guides/xos-gt50.md",
   guideContent: `# XOS 16.2 GT50 Pro Port - Flashing Guide
@@ -29,7 +29,7 @@ Before starting, ensure you have downloaded the following files:
 
 ## 🚀 Flashing Process (Step-by-Step)
 1. 📱 **Reboot to Recovery**: Turn off your device and boot into TWRP or OrangeFox recovery.
-2. 🧹 **Wipe Partition**: Select **Wipe** -> Format metadata, cache, and system Dalvik.
+2. 🧹 **Wipe Partition**: Select **Wipe** -> Dalvik/art cache, cache, metadata, data.
 3. ⚡ **Flash Vbmeta Disabler**: Flash the \`vbmeta-disabler.zip\` file first to disable partition verification.
 4. 📦 **Flash ROM**: Flash the \`XOS-16.2-GT50-Port.zip\` file.
 5. 🧼 **Format Data**: Go to Wipe -> Format Data, type \`yes\` and confirm.
@@ -38,7 +38,7 @@ Before starting, ensure you have downloaded the following files:
 ---
 
 ## 🤝 Credits
-- **@mehran** — Main developer & porter`,
+- **@mehraann19** — Main developer & porter`,
   downloads: [
     {
       group: "Latest Builds",
@@ -48,7 +48,7 @@ Before starting, ensure you have downloaded the following files:
           version: "V16.2-Latest", 
           tag: "stable", 
           device: "Infinix GT 20 Pro", 
-          meta: "Android 16 . Ported from GT50 PRO . Credit: @mehran", 
+          meta: "Android 16 . Ported from GT50 PRO . Credit: @mehraann19", 
           date: "2026-06-02", 
           url: "#"
         }

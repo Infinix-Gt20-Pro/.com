@@ -26,7 +26,7 @@ You flash at your own risk. I'm not liable for damaged hardware or partition tab
 
 ## 🚀 Flashing Process
 1. Boot into Custom Recovery (TWRP / OrangeFox).
-2. Select **Wipe** -> Format metadata, cache, and system dalvik.
+2. Select **Wipe** -> Dalvik/art cache, cache, metadata, data.
 3. Flash the **ColorOS 16 ROM zip** file.
 4. Select **Format Data**, type \`yes\` and swipe to confirm.
 5. Reboot to System and explore OPPO's custom features!

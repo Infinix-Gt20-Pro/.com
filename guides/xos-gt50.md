@@ -18,7 +18,7 @@ Before starting, ensure you have downloaded the following files:
 
 ## 🚀 Flashing Process (Step-by-Step)
 1. 📱 **Reboot to Recovery**: Turn off your device and boot into TWRP or OrangeFox recovery.
-2. 🧹 **Wipe Partition**: Select **Wipe** -> Format metadata, cache, and system Dalvik.
+2. 🧹 **Wipe Partition**: Select **Wipe** -> Dalvik/art cache, cache, metadata, data.
 3. ⚡ **Flash Vbmeta Disabler**: Flash the `vbmeta-disabler.zip` file first to disable partition verification.
 4. 📦 **Flash ROM**: Flash the `XOS-16.2-GT50-Port.zip` file.
 5. 🧼 **Format Data**: Go to Wipe -> Format Data, type `yes` and confirm.
@@ -27,4 +27,4 @@ Before starting, ensure you have downloaded the following files:
 ---
 
 ## 🤝 Credits
-- **@mehran** — Main developer & porter
+- **@mehraann19** — Main developer & porter
