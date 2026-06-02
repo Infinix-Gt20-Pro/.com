@@ -18,7 +18,7 @@ We are not responsible for bricked devices. Proceed at your own risk.
 \`\`\`
 
 ## ⚙️ Required Things
-- **Vbmeta Disabler**: [Download Link](https://t.me/infinixgt20proid/14628)
+- **Vbmeta Disabler**: [Download Link](https://drive.google.com/file/d/1OiVAzjAXMxzZIsr00KH3rbCTzYLBsX06/view?usp=drive_link)
 - **Working Brain**
 
 ## 🚀 Flashing Process

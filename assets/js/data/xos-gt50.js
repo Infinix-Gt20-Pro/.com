@@ -22,7 +22,7 @@ Always make a complete backup of your internal storage data.
 ## 📦 Required Files & Dependencies
 Before starting, ensure you have downloaded the following files:
 1. 📂 **XOS 16.2 ROM Zip**: [Download Links below]
-2. 🔑 **Vbmeta Disabler Zip**: [Get Vbmeta Disabler](https://t.me/infinixgt20proid/14628)
+2. 🔑 **Vbmeta Disabler Zip**: [Get Vbmeta Disabler](https://drive.google.com/file/d/1OiVAzjAXMxzZIsr00KH3rbCTzYLBsX06/view?usp=drive_link)
 3. 💻 **Platform Tools / Drivers**: Standard MTK drivers for PC
 
 ---
