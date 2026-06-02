@@ -221,14 +221,20 @@ function renderOSDetail(id) {
                 <div class="dl-item-details">${item.device} . ${item.meta} . Mapped on ${item.date}</div>
               </div>
               <div class="dl-item-actions">
-                <button class="btn-dl primary" onclick="triggerDownload('${item.url}')">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                  </svg>
-                  ${getButtonLabel}
-                </button>
+                ${(item.url === '#' || !item.url) ? `
+                  <button class="btn-dl secondary disabled" style="cursor: not-allowed; opacity: 0.5;">
+                    Coming Soon
+                  </button>
+                ` : `
+                  <button class="btn-dl primary" onclick="triggerDownload('${item.url}')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    ${getButtonLabel}
+                  </button>
+                `}
               </div>
             </div>
           `).join('')}
@@ -243,33 +249,76 @@ function renderOSDetail(id) {
     `;
   }
 
-  detailContent.innerHTML = `
-    <div class="detail-header-wrap">
-      <div class="detail-img-box">
-        <img src="${os.image}" alt="${os.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop'" />
-      </div>
-      <div class="detail-info-box">
-        <h1 class="detail-title">${os.name}</h1>
-        <p class="detail-desc">${os.fullDesc}</p>
-        <div class="detail-actions-row">
-          <button class="btn-dl primary" onclick="loadGuide('${os.id}')">Flashing Guide</button>
-          <a href="${os.changelog}" target="_blank" rel="noopener noreferrer" class="btn-dl secondary">
-            Changelog
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
+  if (os.guideContent) {
+    const parsedGuide = window.marked ? window.marked.parse(os.guideContent) : `<pre style="white-space: pre-wrap;">${os.guideContent}</pre>`;
+    detailContent.innerHTML = `
+      <div class="detail-split-layout">
+        <!-- Left Column: Info & Downloads -->
+        <div class="detail-left-col detail-card">
+          <div class="detail-img-box" style="width: 100%; height: 220px; margin-bottom: 24px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--glass-border);">
+            <img src="${os.image}" alt="${os.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop'" style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+          <h1 class="detail-title">${os.name}</h1>
+          <p class="detail-desc">${os.fullDesc}</p>
+          
+          <div class="detail-actions-row" style="margin-bottom: 32px;">
+            <button class="btn-dl primary" onclick="document.getElementById('inline-guide-card').scrollIntoView({ behavior: 'smooth' })">Flashing Guide</button>
+            <a href="${os.changelog}" target="_blank" rel="noopener noreferrer" class="btn-dl secondary">
+              Changelog
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+          
+          <div class="detail-downloads-section">
+            <h2 class="downloads-title">Available Files</h2>
+            ${downloadsHTML}
+          </div>
+        </div>
+        
+        <!-- Right Column: Flashing Guide -->
+        <div class="detail-right-col detail-card" id="inline-guide-card">
+          <div class="detail-guide-section inline-guide-content">
+            <h2 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-bottom: 24px; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px; letter-spacing: -0.03em;">⚙️ Installation Guide & Required Files</h2>
+            ${parsedGuide}
+          </div>
         </div>
       </div>
-    </div>
-    
-    <div class="detail-downloads-section">
-      <h2 class="downloads-title">Available Files</h2>
-      ${downloadsHTML}
-    </div>
-  `;
+    `;
+  } else {
+    // Single column full-width layout
+    detailContent.innerHTML = `
+      <div class="detail-card">
+        <div class="detail-header-wrap">
+          <div class="detail-img-box">
+            <img src="${os.image}" alt="${os.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop'" />
+          </div>
+          <div class="detail-info-box">
+            <h1 class="detail-title">${os.name}</h1>
+            <p class="detail-desc">${os.fullDesc}</p>
+            <div class="detail-actions-row">
+              <a href="${os.changelog}" target="_blank" rel="noopener noreferrer" class="btn-dl secondary">
+                Changelog
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="detail-downloads-section">
+          <h2 class="downloads-title">Available Files</h2>
+          ${downloadsHTML}
+        </div>
+      </div>
+    `;
+  }
 
   document.getElementById('page-home').classList.remove('active');
   document.getElementById('page-detail').classList.add('active');
