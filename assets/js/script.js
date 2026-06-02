@@ -261,17 +261,7 @@ function renderOSDetail(id) {
           <h1 class="detail-title">${os.name}</h1>
           <p class="detail-desc">${os.fullDesc}</p>
           
-          <div class="detail-actions-row" style="margin-bottom: 32px;">
-            <button class="btn-dl primary" onclick="document.getElementById('inline-guide-card').scrollIntoView({ behavior: 'smooth' })">Flashing Guide</button>
-            <a href="${os.changelog}" target="_blank" rel="noopener noreferrer" class="btn-dl secondary">
-              Changelog
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
+
           
           <div class="detail-downloads-section">
             <h2 class="downloads-title">Available Files</h2>
@@ -299,16 +289,7 @@ function renderOSDetail(id) {
           <div class="detail-info-box">
             <h1 class="detail-title">${os.name}</h1>
             <p class="detail-desc">${os.fullDesc}</p>
-            <div class="detail-actions-row">
-              <a href="${os.changelog}" target="_blank" rel="noopener noreferrer" class="btn-dl secondary">
-                Changelog
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-              </a>
-            </div>
+
           </div>
         </div>
         
