@@ -255,7 +255,7 @@ function renderOSDetail(id) {
       <div class="detail-split-layout">
         <!-- Left Column: Info & Downloads -->
         <div class="detail-left-col detail-card">
-          <div class="detail-img-box" style="width: 100%; height: 220px; margin-bottom: 24px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--glass-border);">
+          <div class="detail-img-box" style="width: 100%; aspect-ratio: 2 / 1; margin-bottom: 24px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--glass-border);">
             <img src="${os.image}" alt="${os.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop'" style="width: 100%; height: 100%; object-fit: cover;" />
           </div>
           <h1 class="detail-title">${os.name}</h1>

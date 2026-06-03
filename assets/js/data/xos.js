@@ -4,7 +4,7 @@ OS_DATA.push({
   id: "xos",
   name: "XOS 16.1 (Note Edge Port)",
   hide: false,
-  image: "assets/images/banners/xos.png",
+  image: "assets/images/banners/xos.jpg",
   shortDesc: "XOS 16.1 for GT 20 Pro — Ported from Infinix NOTE EDGE | 64-Bit Only",
   fullDesc: "Stable Release v2 (Ported from Infinix NOTE EDGE) by @mehraann19. Transsion OS experience customized for Infinix GT 20 Pro.",
   changelog: "https://t.me/xos16x6871portlinks/3",

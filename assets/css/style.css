@@ -280,7 +280,7 @@ nav {
 }
 
 .card-img {
-  height: 200px;
+  aspect-ratio: 2 / 1;
   position: relative;
   overflow: hidden;
 }
@@ -420,7 +420,7 @@ nav {
 
 .detail-img-box {
   width: 320px;
-  height: 200px;
+  aspect-ratio: 2 / 1;
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--glass-border);
@@ -652,7 +652,8 @@ footer {
   .detail-img-box {
     width: 100% !important;
     max-width: 100% !important;
-    height: 180px !important;
+    height: auto !important;
+    aspect-ratio: 2 / 1 !important;
     margin: 0 auto 20px !important;
   }
   .detail-title {

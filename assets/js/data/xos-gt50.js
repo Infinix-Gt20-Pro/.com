@@ -4,7 +4,7 @@ OS_DATA.push({
   id: "xos-gt50",
   name: "XOS 16.2 (GT50 Pro Port)",
   hide: false,
-  image: "",
+  image: "assets/images/banners/xos-gt50.jpg",
   shortDesc: "XOS 16.2 Latest Build ported from Infinix GT50 PRO | Android 16",
   fullDesc: "Experience the state-of-the-art XOS 16.2 build ported from the Infinix GT50 PRO. Maintained and ported by @mehraann19, this ROM delivers premium UI customisation, improved battery backup, and maximum hardware optimization for the Infinix GT 20 Pro.",
   changelog: "#",
